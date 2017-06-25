@@ -4,7 +4,7 @@ This is CatLib's documentation site, which is built using [hexo](http://hexo.io/
 
 ## Build a local document environment
 
-First you must install [nodejs](http://nodejs.cn/) after the installation is complete by following the instructions in the `localhost: 4000` start document site:
+First you must install [nodejs](http://nodejs.cn/) after the installation is complete by following the instructions in the `localhost:4000` start document site:
 
 ```
 $ npm install -g hexo-cli
