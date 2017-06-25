@@ -6,6 +6,8 @@ order: 200
 
 ## Configuration
 
+> This article is translated by machine
+
 CatLib allows you to configure the system to configure the functional parameters required by the service provider. Each service provider will provide their own unique configuration information. You can learn about the configuration information from these providers' documents.
 
 CatLib's configuration system helps you find, load, autofill, any type of configuration you need. Regardless of what the source may be (code embedded, CSV, YAML, XML, INI file or database).

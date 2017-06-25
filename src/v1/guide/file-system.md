@@ -1,38 +1,40 @@
 ---
-title: 文件系统
+title: File system
 type: guide
 order: 230
 ---
 
-## 文件系统
+## File system
 
-CatLib提供的文件系统抽象允许使用一个API来对多个本地(云存储)的文件存储系统进行操作。
+> This article is translated by machine
 
-CatLib文件系统已经集成了处理本地文件系统的简单驱动。
+CatLib provides file system abstraction that allows an API to operate on multiple local (cloud storage) file storage systems.
 
-### 上下文环境
+The CatLib file system has been integrated with a simple driver for handling local file systems.
 
-如果没有特殊的说明，本文中的示例项目都是基于下述上下文环境，默认使用本地文件驱动：
+### Context
+
+If there are no special instructions, the sample project in this article is based on the following context, using the local file driver by default:
 
 ``` csharp
 var fileSystemManager = App.Instance.Make<IFileSystemManager>();
 ```
 
-您可以通过`IFileSystemManager`的`Disk()`方法来获取文件系统的磁盘实例。
+You can get the disk instance of the file system through the `Disk ()` method of `IFileSystemManager`.
 
 ``` csharp
 var disk = fileSystemManager.Disk();
 ```
 
-### 默认的磁盘
+### Default disk
 
-CatLib默认的磁盘会被定位到`Env.AssetPath`。详情请参考[CatLib核心 / 环境](application.html#环境)
+CatLib default disk will be positioned to `Env.AssetPath`. For more information, please refer to [CatLib Core / Environment](application.html # environment)
 
-### 文件系统API
+### File system API
 
 #### **Read**
 
-通过`Read()`方法可以读取文件的字节流。
+The byte stream of the file can be read by the `Read ()` method.
 
 ``` csharp
 byte[] data = disk.Read("helloworld.txt");
@@ -40,7 +42,7 @@ byte[] data = disk.Read("helloworld.txt");
 
 #### **Exists**
 
-通过`Exists()`可以判断文件是否存在。
+You can tell if the file exists by `Exists ()`.
 
 ``` csharp
 bool isExists = disk.Exists("helloworld.txt");
@@ -48,7 +50,7 @@ bool isExists = disk.Exists("helloworld.txt");
 
 #### **Delete**
 
-通过`Delete()`可以删除文件。
+You can delete a file with `Delete ()`.
 
 ``` csharp
 disk.Delete("helloworld.txt");
@@ -56,7 +58,7 @@ disk.Delete("helloworld.txt");
 
 #### **Write**
 
-通过`Write()`可以写入一个文件，如果文件已经存在那么覆盖数据。
+By `Write ()` can write a file, if the file already exists then overwrite the data.
 
 ``` csharp
 disk.Wrire("helloworld.txt" , Encoding.Default.GetBytes("hello world"));
@@ -64,9 +66,9 @@ disk.Wrire("helloworld.txt" , Encoding.Default.GetBytes("hello world"));
 
 #### **Move**
 
-移动`文件`或`文件夹`到指定路径中。
+Move the file or folder to the specified path.
 
-`Move()`可以被用于重命名。
+`Move ()` can be used for renaming.
 
 ``` csharp
 disk.Move("helloworld.txt" , "NewDir");
@@ -74,7 +76,7 @@ disk.Move("helloworld.txt" , "NewDir");
 
 #### **Copy**
 
-复制`文件`或`文件夹`到指定路径。
+Copy the file or folder to the specified path.
 
 ``` csharp
 disk.Copy("helloworld.txt" , "new-helloworld.txt");
@@ -82,7 +84,7 @@ disk.Copy("helloworld.txt" , "new-helloworld.txt");
 
 #### **MakeDir**
 
-新建一个`文件夹`。
+Create a new `folder '.
 
 ``` csharp
 disk.MakeDir("NewDir");
@@ -90,7 +92,7 @@ disk.MakeDir("NewDir");
 
 #### **GetAttributes**
 
-获取`文件`或`文件夹`的属性。
+Gets the properties of a file or folder.
 
 ``` csharp
 disk.GetAttributes("helloworld.txt");
@@ -98,7 +100,7 @@ disk.GetAttributes("helloworld.txt");
 
 #### **GetSize**
 
-获取`文件`或`文件夹`的大小（如果是文件夹则是总大小）。
+Get the size of the file or folder (or the total size if it is a folder).
 
 ``` csharp
 disk.GetSize("helloworld.txt");
@@ -106,7 +108,7 @@ disk.GetSize("helloworld.txt");
 
 #### **GetHandler**
 
-获取`文件`或`文件夹`的句柄（可以通过句柄直接操作这个文件或文件夹）
+Get a handle to a file or folder (you can manipulate the file or folder directly by hand)
 
 ``` csharp
 var fileHandler = disk.GetHandler<IFile>("helloworld.txt");
@@ -118,15 +120,15 @@ var dirHandler = disk.GetHandler<IDirectory>("NewDir");
 
 #### **GetList**
 
-通过`GetList()`可以获取指定路径下的所有文件夹和文件的句柄(注意不会迭代子文件夹)。
+With `GetList ()`, you can get all the folders and file handles under the specified path (note that the subfolders do not iterate).
 
 ``` csharp
 var list = disk.GetList();
 ```
 
-### 自定义文件系统
+### Customize the file system
 
-CatLib文件系统允许您自定义您的文件系统驱动，您只需要使用`Extend()`就可以自定义拓展。
+The CatLib file system allows you to customize your file system drivers, and you only need to use `Extend ()` to customize your extensions.
 
 ``` csharp
 fileSystemManager.Extend(()=>
@@ -135,7 +137,7 @@ fileSystemManager.Extend(()=>
 },"MyDisk");
 ```
 
-扩展后您可以通过`Disk()`来获取扩展实例。
+After extension, you can get extended instances with `Disk ()`.
 
 ``` csharp
 var newDisk = fileSystemManager.Disk("MyDisk");

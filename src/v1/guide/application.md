@@ -6,6 +6,8 @@ order: 102
 
 ## CatLib Core
 
+> This article is translated by machine
+
 `Application` is the core of the CatLib program and is the so-called program entry. The application loads the service provider and other necessary resources by booting. The application is only allowed to start one in general, and can only be started in the main thread.
 
 ### Start the process

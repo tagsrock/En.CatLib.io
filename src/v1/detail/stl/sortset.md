@@ -6,6 +6,8 @@ order: 100
 
 ## Sort Set
 
+> This article is translated by machine
+
 Ordinal collections and collections are also collections of elements, and do not allow duplicate members. The difference is that each element will be associated with a score that can be sorted.
 
 An ordered set is a fraction of the order of the members of the collection from small to large sort. The members of the ordered collection are unique, but the score can be repeated.

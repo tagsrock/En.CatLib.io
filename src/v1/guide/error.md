@@ -1,17 +1,19 @@
 ---
-title: 常见错误
+title: Common mistakes
 type: guide
 order: 3
 ---
 
-## 常见错误
+## Common mistakes
 
-本文档描述了开发者经常会遇到的错误，以帮助开发者快速解决问题。
+> This article is translated by machine
 
-### 依赖注入
+This document describes the bugs that developers often encounter to help developers solve problems quickly.
 
-- 特性依赖注入总是在构造函数依赖注入之后执行的，请不要在构造函数中使用特性依赖注入的对象。
+### Dependent injection
 
-### 路由
+- Attribute dependency injection is always performed after the constructor dependency injection. Please do not use features in the constructor to rely on the injected object.
 
-- 路由系统`Route()`中定义的uri的host匹配区块不允许使用变量匹配。即：`ui://{myname}/hello/world/1/`(在host中不能使用{myname}做变量匹配，这是一个错误的例子)
+### routing
+
+- The host matching block for uri defined in the routing system `Route()` does not allow variable matching. That is: `ui://{myname}/hello/world/1/` (in the host can not use {myname} do variable matching, this is a wrong example)

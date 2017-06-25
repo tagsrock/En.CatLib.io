@@ -6,6 +6,8 @@ order: 101
 
 ## Quick list
 
+> This article is translated by machine
+
 Quick list sorted by insert order. You can add an element to the list of head (left) or tail (right).
 
 Quick list macro is a two-way list, micro-array. Compared to the traditional list, to avoid the changes caused by large-scale data migration.

@@ -6,6 +6,8 @@ order: 103
 
 ## API
 
+> This article is translated by machine
+
 A service interface is a set of interfaces provided by the framework that define the core component services (hereinafter referred to as the service). Such as: `IRouter` interface defines the routing service can be used method.
 
 Each interface frame has a corresponding implementation. For example, CatLib provides a variety of driver implementations for file systems.

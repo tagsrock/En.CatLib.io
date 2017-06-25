@@ -1,28 +1,28 @@
 ---
-title: 路由
+title: Routing
 type: guide
 order: 210
 ---
 
-## 路由
+## Routing
 
-CatLib路由系统可以赋予您通过一个uri调度到指定功能的能力。
+The CatLib routing system gives you the ability to schedule a function through a uri.
 
-### 基础概念
+### Basic concept
 
-#### **基本构成**
+#### **Basic composition**
 
-CatLib路由系统由`路由器`，`特性路由`，`路由条目`，`路由编译器`，`路由组`组成。
+The CatLib routing system consists of a router, a feature route, a route entry, a routing compiler, and a routing group.
 
-`路由器`负责整个路由系统的调度
+`Router` is responsible for the scheduling of the entire routing system
 
-`路由条目`是路由系统中的基本单位，她确定了具体的一条路由及路由的目标。
+`The routing entry` is the basic unit in the routing system, and she identifies the specific route and route destination.
 
-`路由组`则是一个群体范围，一个路由组内部可以有多个路由条目，反之一个路由条目也可以拥有多个路由组。
+`Routing group` is a group scope, a routing group can have multiple routing entries, and vice versa routing entries can also have multiple routing groups.
 
-`特性路由`是路由系统的扩展，允许开发者以特性的形式对路由目标方法进行标记后对标记的路由方法进行调度。
+The `attribute route` is an extension of the routing system that allows the developer to mark the routing method after the route object method is marked in the form of a feature.
 
-`路由编译器`用于编译路由条目。编译后的路由条目可以被路由器使用。
+`The routing compiler` is used to compile the routing entries. The compiled routing entries can be used by the router.
 
 #### **名词解释**
 

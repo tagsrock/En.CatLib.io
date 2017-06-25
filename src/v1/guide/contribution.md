@@ -1,51 +1,53 @@
 ---
-title: 贡献指南
+title: Contribution
 type: guide
 order: 5
 ---
 
-## 贡献指南
+## Contribution
 
-本文档描述了如何对框架提供贡献及框架，组件，文档，bug fixed的贡献情况。
+> This article is translated by machine
 
-### 缺陷报告
+This document describes how to contribute to the framework and contribute to the framework, components, documentation, bug fix.
 
-CatLib 强烈鼓励使用 GitHub 的 pull requests(以下简称PR)，来提供缺陷报告。“缺陷报告”也可以通过一个包含失败断言的 pull requests 的方式提交。 
+### Defect report
 
-如果你以文件的方式提交缺陷报告，你的问题应该包含一个标题和对该问题的明确说明，还要包含尽可能多的相关信息以及论证该问题的代码样板，缺陷报告的目的是为了让你自己和其他人更方便的重现缺陷并对其进行修复。
+CatLib strongly encourages the use of GitHub's pull requests (hereinafter referred to as PR) to provide defect reports. The Defect Report can also be submitted by a pull requests containing failed assertions.
 
-### 开发讨论
+If you submit a bug report in the form of a document, your question should contain a title and a clear description of the problem, and include as much information as possible and a code model that demonstrates the problem. The purpose of the defect report is to keep you It is easier for others and others to reproduce the defects and repair them.
 
-你可以在issue board上提议新功能或者优化已有功能，如果是新功能的话请至少实现部分代码以便完成新功能开发。
+### Development discussion
+
+You can propose new features on the issue board or optimize existing functions. If you are new, please implement at least part of the code to complete the new function development.
 
 ### Pull Request
 
-- 不要进行较大内容的PR ， 除非它是一个全新的组件
-- 每个PR只做一件事情
-- 确保PR的代码能够通过编译
-- 提交PR时，请务必保证针对代码的所有测试都必须通过
-- 提交PR时，请务必记录好PR的原因
-- 提交的PR，请务必保证单元测试尽快能的覆盖（核心组件90%,常规组件75%）
-- 如果提交的PR不能完成覆盖，请描述其原因。
-- 所有的PR的单元测试都必须能在VS(MSTest)和Unity(NUnit)中运行
-- 请按照代码命名规范正确规范的编写代码
+- do not make a larger content PR unless it is a brand new component
+- each PR only do one thing
+- Make sure that the PR code can be compiled
+- When submitting PR, make sure that all tests for the code must pass
+- When submitting PR, be sure to record the cause of PR
+- Submit the PR, be sure to ensure that the unit test can cover as soon as possible (90% core components, 75% of conventional components)
+- If the submitted PR can not complete the cover, please describe the reason.
+- All PR unit tests must be run in VS (MSTest) and Unity (NUnit)
+- Please write the code according to the code specification
 
-### 提交到的分支
+### Submitted to the branch
 
-- 所有的 bug 修复应该被提交到最新的稳定分支，永远不要把 bug 修复提交到 master 分支，除非它们能够修复下个发行版本中才存在的特性。
-- 当前版本中完全向后兼容的次要特性也可以提交到最新的稳定分支。
-- 重要的新特性是要被提交到 master 分支的。
-- 如果你不确定是重要特性还是次要特性，请在calib.slack或QQ群中咨询。
+- all bug fixes should be submitted to the latest stable branch, never submit bug fixes to the master branch, unless they can fix the next release version of the existing features.
+- The new features that are fully backward compatible in the current version can also be submitted to the latest stable branch.
+- Important new features are to be submitted to the master branch.
+- If you are not sure whether it is an important feature or a secondary feature, consult in the calib.slack or QQ group.
 
-### 框架设计者
+### Frame designer
 
 - 喵喵大人 - github：[yb199478](https://github.com/yb199478)
 
-### 组件贡献者
+### Component contributor
 
-> 虚以待位
+> Virtual to be
 
-### 其他贡献者
+### Other contributors
 
 - A:[AlianBlank](https://github.com/AlianBlank)
 - D:[DawnKing](https://github.com/DawnKing)

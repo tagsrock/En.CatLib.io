@@ -1,54 +1,56 @@
 ---
-title: 介绍
+title: Introduction
 type: guide
 order: 0
 ---
 
-## 介绍
+## Introduction
+
+> This article is translated by machine
 
 <a href="https://github.com/yb199478/CatLib/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" title="license-mit" /></a> <a href="https://github.com/yb199478/catlib/"><img src="https://badge.fury.io/gh/catlib%2Fcatlib.svg" title="GitHub version" /></a> <a href="https://ci.appveyor.com/project/yb199478/catlib"><img src="https://ci.appveyor.com/api/projects/status/f12rb3x5hxvq6yr7?svg=true" title="Build status"/></a> <a href="https://codecov.io/gh/CatLib/CatLib"><img src="https://codecov.io/gh/CatLib/CatLib/branch/master/graph/badge.svg" alt="Codecov" /></a> <img src="https://img.shields.io/badge/unity-min%205.3-red.svg" alt="min unity" />
 
-> CatLib要求Unity最低版本为5.3+
+> CatLib requires Unity minimum version 5.3+
 
-### CatLib是什么
+### What is CatLib?
 
-CatLib 是一套`渐进式`的`服务提供者框架`。框架为客户端提供多个实现，并把他们从多个实现中解耦出来。服务提供者的改变对它们的客户端是透明的，这样提供了更好的可扩展性。她不仅易于上手，还便于与第三方库或既有项目整合。
+CatLib is a set of `progressive` service provider frameworks. The framework provides multiple implementations for the client and decouples them from multiple implementations. Service provider changes are transparent to their clients, which provides better scalability. She is not only easy to get started, but also easy to integrate with third-party libraries or existing projects.
 
-### CatLib的优势
+### Advantages of CatLib
 
-- CatLib是渐进式的框架，可以无缝和现有框架融合。无论您的项目处于哪个阶段您都可以轻易的接入CatLib。
-- CatLib提供的依赖注入方案，可以极大程度的帮助项目解耦。
-- CatLib提供了大量可靠，可持续的公共组件，帮助企业降低开发成本。
-- 基于MIT协议，企业可以通过CatLib的组件化方案建立私有的公共组件库，积攒公共组件。
-- 轻量级的框架，所有的组件都是可以被移除的，您可以只选择适合您的组件。
-- 中文文档完善，极低的学习成本。
-- 面向接口编程，底层组件无感知替换。
+- CatLib is a progressive framework that integrates seamlessly with existing frameworks. You can easily access CatLib regardless of your project at which stage.
+- CatLib provides a dependency injection scheme that can greatly assist in decoupling the project.
+- CatLib provides a large number of reliable, sustainable public components to help companies reduce development costs.
+- Based on the MIT protocol, enterprises can build a private public component library through CatLib's componentization scheme to accumulate public components.
+- lightweight framework, all components can be removed, you can only choose the right for your components.
+- Chinese documents perfect, very low learning costs.
+- interface-oriented programming, the underlying components without perception replacement.
 
-### 从Github上Clone
+### From Github on Clone
 
 > CatLib:[https://github.com/catlib/catlib](https://github.com/catlib/catlib)
 
-首先，先从Github上Clone出CatLib项目吧！
+First, go to Clon from the Github to the CatLib project!
 
-完成Clone后，您将会发现Clone的文件夹中存在：`CatLib.Unity`和`CatLib.VS` 2个文件夹，她们分别对应的是`CatLib Unity项目` 和 `CatLib编译项目`。
+After completing Clone, you will find that there are folders in the Clone folder: CatLib.Unity and CatLib.VS 2 folders, which correspond to the `CatLib Unity project` and `CatLib compilation project 'respectively.
 
-您的项目开发将会基于`CatLib.Unity`开始，而`CatLib.VS`则是用于将CatLib框架编译成`dll`文件。一般情况下CatLib的源码将会在`CatLib.VS`文件中。
+Your project development will start with `CatLib.Unity`, and` CatLib.VS` will be used to compile the CatLib framework into a `dll` file. In general, CatLib source code will be in the `CatLib.VS` file.
 
-使用Unity打开`CatLib.Unity`项目，首先先运行一次`单元测试`以确保您下载的框架项目没有问题。通过`Window` -> `Test Runner`来打开单元测试窗口，随后请执行`Run All`。
+Using Unity to open the `CatLib.Unity` project, first run a unit test first to make sure you download the frame project without problems. Open the unit test window with Window-> Test Runner, then execute `Run All`.
 
-请稍等片刻，根据设备性能的不同，单元测试可能会进行1分钟左右。
+Please wait a moment, depending on the performance of the device, the unit test may be about 1 minute.
 
-### 第一次使用
+### First use
 
-CatLib是易于上手的。你只需要有良好的 C# 基础。你就可以非常快速地通过阅读这份 指南 投入开发。
+CatLib is easy to use. You only need to have a good C # foundation. You can be very quick to read through the development of this guide.
 
-### 友情链接
+### Links
 
-#### **UI框架**
+#### **UI framework**
 
-- [FairyGUI](http://www.fairygui.com/) 编辑器操作简单，使用习惯与Adobe系列软件保持一致，策划和美术设计师可以轻松上手。在编辑器即可组合各种复杂UI组件，以及为UI设计动画效果，无需编写任何代码。可一键导出到Unity，Starling，Egret， LayaAir，Flash等多个主流应用和游戏平台。
+- [FairyGUI](http://www.fairygui.com/) The editor is easy to use, and the habits are consistent with the Adobe family of software, planning and art designers can easily get started. In the editor to combine a variety of complex UI components, as well as the design of animation for the UI, without writing any code. Can be a key to export to Unity, Starling, Egret, LayaAir, Flash and other mainstream applications and gaming platform.
 
-#### **热更新方案**
+#### **Hot update program**
 
-- [ILRuntime](https://github.com/Ourpalm/ILRuntime) 项目为基于C#的平台（例如Unity）提供了一个纯C#实现的，快速、方便并且可靠的IL运行时，使得能够在不支持JIT的硬件环境（如iOS）能够实现代码的热更新
-- [XLua](https://github.com/Tencent/xLua) 为Unity、 .Net、 Mono等C#环境增加Lua脚本编程的能力，借助xLua，这些Lua代码可以方便的和C#相互调用。
+- [ILRuntime](https://github.com/Ourpalm/ILRuntime) The project provides a fast, easy, and reliable IL runtime for a C # -based platform, such as Unity, that enables a hot update of code in a hardware environment that does not support JIT (such as iOS)
+- [XLua](https://github.com/Tencent/xLua) For the Unity,. Net, Mono and other C # environment to increase Lua scripting capabilities, with xLua, these Lua code can be easily and C # call each other.

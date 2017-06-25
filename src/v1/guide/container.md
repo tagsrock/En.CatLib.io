@@ -6,6 +6,8 @@ order: 101
 
 ## Container
 
+> This article is translated by machine
+
 A service container is a powerful tool for managing class dependencies and performing dependency injection. Its essence is to inject the `constructor 'or the attribute selector labeled` [Inject] `property by reflection (injecting the service implementation dependency into the class).
 
 ### Introduction
