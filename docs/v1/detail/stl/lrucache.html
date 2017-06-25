@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    <title>近期最少使用缓存 — CatLib</title>
+    <meta charset="utf-8">
+    <meta name="description" content="CatLib Unity Framework.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="/css/page.css">
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/jquery.js"></script>
+    </head>
+
+    <body>
+        
+            <nav class="nav">
+    <div class="border">
+        <img src="/images/logo.png" />
+        <button class="hiden-in-phone">V0.8</button>
+        <button id="btn-menu" class="hiden-in-pc">菜单</button>
+        <ul class="nav-link hiden-in-phone">
+            <!--li>
+                <form id="search-form">
+                    <input type="text" id="search-query" class="search-query">
+                </form>
+            </li!-->
+            <li><a href="https://github.com/catlib/catlib" class="nav-link-li">下载框架</a></li>
+            <li><a href="/v1/guide/use.html" class="nav-link-li">使用案例</a></li>
+            <li><a href="/v1/guide/version.html" class="nav-link-li">版本说明</a></li>
+            <li><a href="/v1/guide/contribution.html" class="nav-link-li">贡献指南</a></li>
+            <li><a href="/v1/guide/index.html" class="nav-link-li">介绍</a></li>
+            <li><a href="/" class="nav-link-li current">首页</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="container" class="container clear">
+    <section class="sidebar clearfix">
+    <ul>
+        
+            
+            
+                <li><h3>基础</h3></li>
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/index.html" class="sidebar-link">介绍</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/upgrade.html" class="sidebar-link">升级指南</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/version.html" class="sidebar-link">版本说明</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/error.html" class="sidebar-link">常见错误</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/style.html" class="sidebar-link">命名规范</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/contribution.html" class="sidebar-link">贡献指南</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/use.html" class="sidebar-link">使用案例</a></p>
+            </li>
+        
+            
+            
+            
+                <li><h3>系统架构</h3></li>
+            
+            
+            <li>
+                <p><a href="/v1/guide/service-provider.html" class="sidebar-link">服务提供者</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/container.html" class="sidebar-link">服务容器</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/application.html" class="sidebar-link">CatLib核心</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/api.html" class="sidebar-link">服务接口</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/facade.html" class="sidebar-link">服务门面</a></p>
+            </li>
+        
+            
+            
+            
+            
+                <li><h3>核心组件</h3></li>
+            
+            <li>
+                <p><a href="/v1/guide/config.html" class="sidebar-link">配置</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/routing.html" class="sidebar-link">路由</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/stl.html" class="sidebar-link">标准库</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/file-system.html" class="sidebar-link">文件系统</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/time.html" class="sidebar-link">时间</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/timer.html" class="sidebar-link">计时器</a></p>
+            </li>
+        
+    </ul>
+</section>
+    <article class="clearfix">
+    <h2 id="近期最少使用缓存"><a href="#近期最少使用缓存" class="headerlink" title="近期最少使用缓存"></a>近期最少使用缓存</h2><p>近期最少使用缓存根据数据的历史访问记录来进行淘汰数据。当链表满的时候，将链表尾部的数据丢弃。</p>
+<blockquote>
+<p>当存在热点数据时，LRU的效率很好，批量操作会导致LRU命中率急剧下降，缓存污染情况比较严重。所以这个结构仅适合简单的缓存。</p>
+</blockquote>
+<h3 id="可用方法"><a href="#可用方法" class="headerlink" title="可用方法"></a>可用方法</h3><ul>
+<li><a href="#Add">Add</a></li>
+<li><a href="#Count">Count</a></li>
+<li><a href="#Get">Get</a></li>
+<li><a href="#Remove">Remove</a></li>
+</ul>
+<h3 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h3><p>添加一个<code>element</code>到近期最少使用缓存，或者如果它已经存在则将其移动到缓存头部。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">lruCache.Add(<span class="string">"key"</span> , <span class="string">"val"</span>);</div></pre></td></tr></table></figure>
+<h3 id="Count"><a href="#Count" class="headerlink" title="Count"></a>Count</h3><p>获取Lru缓存中的<code>element</code>数量。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> num = lruCache.Count;</div></pre></td></tr></table></figure>
+<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><p>根据<code>key</code>获取<code>element</code>，如果被淘汰则返回传入的<code>默认值</code>。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> element = lruCache.Get(<span class="string">"key"</span> , <span class="string">"default val"</span>);</div></pre></td></tr></table></figure>
+<h3 id="Remove"><a href="#Remove" class="headerlink" title="Remove"></a>Remove</h3><p>根据<code>key</code>移除<code>element</code>。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">lruCache.Remove(<span class="string">"key"</span>);</div></pre></td></tr></table></figure>
+    <div class="footer">
+        发现错误？想参与编辑？ 
+        <a href="https://github.com/catlib/catlib.github.io/blob/master/src/v1/detail/stl/lrucache.md" target="_blank">
+            在 Github 上编辑此页！
+        </a>
+    </div>
+</article>
+
+<div class="sub-nav hiden-in-phone">
+    <dl id="sub-nav">
+        <dt>本文内容</dt>
+        <dd v-for="(ele, index) in sub_nav">
+           <a v-bind:href="ele.href">{{ ele.name }}</a>
+        </dd>
+    </dl>
+</div> 
+</div>
+
+<footer>
+    <div>
+        <p>© Copyright 2017 catlib.io All Rights Reserved</p>
+        <p>喵喵喵，快来一起玩喵~</p>
+    </div>
+</footer>
+
+
+<script>
+var vm = new Vue({
+    el : '#container',
+    data: {
+        sub_nav : [ ]
+    },
+    created:function(){
+        var obj = [];
+        $("article h3").each(function(){
+            obj.push({name :  $(this).find("a").attr("title") , href : "#"+$(this).attr("id") });
+        });
+
+        this.sub_nav = obj;       
+    }
+});
+
+var isShow = false;
+$("nav").on("click","#btn-menu" , function(){
+
+    if(!isShow){
+        
+        if($(document).scrollTop() > $(".sidebar").height() - 100){
+
+            $('html, body').animate({scrollTop:0} , 300, "swing",function(){
+
+                $(".sidebar").fadeIn();
+                $(".container").animate({"left" : "15rem"}, 500,"swing");
+            });
+        }else{
+
+                $(".sidebar").fadeIn();
+                $(".container").animate({"left" : "15rem"}, 500,"swing");
+
+        }
+
+    }else{
+        $(".sidebar").fadeOut();
+        $(".container").animate({"left" : "0rem"}, 500,"swing");
+    }
+    isShow = !isShow;
+
+});
+
+$(".container").on("click" , "article" , function(){
+
+    if(isShow){
+        $(".sidebar").fadeOut();
+        $(".container").animate({"left" : "0rem"}, 500,"swing");
+        isShow = false;    
+    }
+
+});
+</script>
+        
+    </body>
+</html>

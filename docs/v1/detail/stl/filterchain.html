@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    <title>过滤器链 — CatLib</title>
+    <meta charset="utf-8">
+    <meta name="description" content="CatLib Unity Framework.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="/css/page.css">
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/jquery.js"></script>
+    </head>
+
+    <body>
+        
+            <nav class="nav">
+    <div class="border">
+        <img src="/images/logo.png" />
+        <button class="hiden-in-phone">V0.8</button>
+        <button id="btn-menu" class="hiden-in-pc">菜单</button>
+        <ul class="nav-link hiden-in-phone">
+            <!--li>
+                <form id="search-form">
+                    <input type="text" id="search-query" class="search-query">
+                </form>
+            </li!-->
+            <li><a href="https://github.com/catlib/catlib" class="nav-link-li">下载框架</a></li>
+            <li><a href="/v1/guide/use.html" class="nav-link-li">使用案例</a></li>
+            <li><a href="/v1/guide/version.html" class="nav-link-li">版本说明</a></li>
+            <li><a href="/v1/guide/contribution.html" class="nav-link-li">贡献指南</a></li>
+            <li><a href="/v1/guide/index.html" class="nav-link-li">介绍</a></li>
+            <li><a href="/" class="nav-link-li current">首页</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="container" class="container clear">
+    <section class="sidebar clearfix">
+    <ul>
+        
+            
+            
+                <li><h3>基础</h3></li>
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/index.html" class="sidebar-link">介绍</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/upgrade.html" class="sidebar-link">升级指南</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/version.html" class="sidebar-link">版本说明</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/error.html" class="sidebar-link">常见错误</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/style.html" class="sidebar-link">命名规范</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/contribution.html" class="sidebar-link">贡献指南</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/use.html" class="sidebar-link">使用案例</a></p>
+            </li>
+        
+            
+            
+            
+                <li><h3>系统架构</h3></li>
+            
+            
+            <li>
+                <p><a href="/v1/guide/service-provider.html" class="sidebar-link">服务提供者</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/container.html" class="sidebar-link">服务容器</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/application.html" class="sidebar-link">CatLib核心</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/api.html" class="sidebar-link">服务接口</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/facade.html" class="sidebar-link">服务门面</a></p>
+            </li>
+        
+            
+            
+            
+            
+                <li><h3>核心组件</h3></li>
+            
+            <li>
+                <p><a href="/v1/guide/config.html" class="sidebar-link">配置</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/routing.html" class="sidebar-link">路由</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/stl.html" class="sidebar-link">标准库</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/file-system.html" class="sidebar-link">文件系统</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/time.html" class="sidebar-link">时间</a></p>
+            </li>
+        
+            
+            
+            
+            
+            <li>
+                <p><a href="/v1/guide/timer.html" class="sidebar-link">计时器</a></p>
+            </li>
+        
+    </ul>
+</section>
+    <article class="clearfix">
+    <h2 id="过滤器链"><a href="#过滤器链" class="headerlink" title="过滤器链"></a>过滤器链</h2><p>过滤器链就是将会数据传递到一个任务序列中，过滤器链扮演者流水线的角色，数据在这里被处理然后传递到下一个步骤。</p>
+<p>过滤器链可以将复杂的流程分解成多个独立的子任务。每个独立的任务都是可复用的，因此这些任务可以被组合成复杂的流程。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>CatLib框架很多地方都是用到了过滤器链，其中最典型的就是路由系统的中间件。</p>
+<p>我们需要实现过滤器链的地方绝大多数会处于项目底层的部分。</p>
+<h3 id="可用方法"><a href="#可用方法" class="headerlink" title="可用方法"></a>可用方法</h3><ul>
+<li><a href="#Add">Add</a></li>
+<li><a href="#Do">Do</a></li>
+<li><a href="#FilterList">FilterList</a></li>
+</ul>
+<h3 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h3><p>增加一个处理器到过滤器链中，处理器根据优先级进行排序。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">filterChain.Add((data, next)=&gt;</div><div class="line">&#123;</div><div class="line">    <span class="comment">// todo:</span></div><div class="line">&#125;,<span class="number">100</span>);</div></pre></td></tr></table></figure>
+<h3 id="Do"><a href="#Do" class="headerlink" title="Do"></a>Do</h3><p>将数据传入过滤器链并依次执行处理器。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">filterChain.Do(<span class="string">"helloworld"</span> , (data)=&gt;</div><div class="line">&#123;</div><div class="line">    <span class="comment">//todo</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="FilterList"><a href="#FilterList" class="headerlink" title="FilterList"></a>FilterList</h3><p>获取过滤器链中的所有处理器。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> list = filterChain.FilterList;</div></pre></td></tr></table></figure>
+
+    <div class="footer">
+        发现错误？想参与编辑？ 
+        <a href="https://github.com/catlib/catlib.github.io/blob/master/src/v1/detail/stl/filterchain.md" target="_blank">
+            在 Github 上编辑此页！
+        </a>
+    </div>
+</article>
+
+<div class="sub-nav hiden-in-phone">
+    <dl id="sub-nav">
+        <dt>本文内容</dt>
+        <dd v-for="(ele, index) in sub_nav">
+           <a v-bind:href="ele.href">{{ ele.name }}</a>
+        </dd>
+    </dl>
+</div> 
+</div>
+
+<footer>
+    <div>
+        <p>© Copyright 2017 catlib.io All Rights Reserved</p>
+        <p>喵喵喵，快来一起玩喵~</p>
+    </div>
+</footer>
+
+
+<script>
+var vm = new Vue({
+    el : '#container',
+    data: {
+        sub_nav : [ ]
+    },
+    created:function(){
+        var obj = [];
+        $("article h3").each(function(){
+            obj.push({name :  $(this).find("a").attr("title") , href : "#"+$(this).attr("id") });
+        });
+
+        this.sub_nav = obj;       
+    }
+});
+
+var isShow = false;
+$("nav").on("click","#btn-menu" , function(){
+
+    if(!isShow){
+        
+        if($(document).scrollTop() > $(".sidebar").height() - 100){
+
+            $('html, body').animate({scrollTop:0} , 300, "swing",function(){
+
+                $(".sidebar").fadeIn();
+                $(".container").animate({"left" : "15rem"}, 500,"swing");
+            });
+        }else{
+
+                $(".sidebar").fadeIn();
+                $(".container").animate({"left" : "15rem"}, 500,"swing");
+
+        }
+
+    }else{
+        $(".sidebar").fadeOut();
+        $(".container").animate({"left" : "0rem"}, 500,"swing");
+    }
+    isShow = !isShow;
+
+});
+
+$(".container").on("click" , "article" , function(){
+
+    if(isShow){
+        $(".sidebar").fadeOut();
+        $(".container").animate({"left" : "0rem"}, 500,"swing");
+        isShow = false;    
+    }
+
+});
+</script>
+        
+    </body>
+</html>
