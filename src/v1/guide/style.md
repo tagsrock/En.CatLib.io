@@ -1,25 +1,25 @@
 ---
-title: 命名规范
+title: Code Style
 type: guide
 order: 4
 ---
 
-## 命名规范
+## Code Style
 
 > This article is translated by machine
 
-本文档描述了CatLib框架中的命名规范。
+This document describes the naming conventions in the CatLib framework.
 
-> 如果您要为为 CatLib 发起贡献，您必须遵循这份命名规范文档。
+> If you want to contribute to CatLib, you must follow this naming convention document.
 
 　
-> 如果没有明确指定`访问级别(public|private等)`则表示对所有访问级别生效。
+> If the access level (public | private, etc.) is not explicitly specified, it means that all access levels are valid.
 
-### 概述
+### Overview
 
-- `代码`必须使用`4个空格`缩进，而不要使用制表符(tab)
-- 使用`using XXX`，而不是`new XXX.xxx()`
-- `{}`必须换行,且内部代码`顶格书写`
+- The code must be indented with `four spaces` instead of using tabs
+- Use `using XXX` instead of `new XXX.xxx()`
+- `{}` Must wrap, and the internal code `top grid write`
 ``` csharp
 if(true)
 {
@@ -27,59 +27,59 @@ if(true)
 }
 ```
 
-- 使用`///`对`代码`进行注释
+- Use `///` to comment on `code`
 ``` csharp
 /// <summary>
-/// 这里对代码进行了注释
+/// The code is commented here
 /// </summary>
 public string VariableName = "VariableName";
 ```
 
-- 对于容易`产生歧义的表达式`您应该使用`括号`包裹
+- For easy `ambiguous expressions` you should use `brackets` parcels
 ``` csharp
 if(variable1 + (++variable2) > 0)
 {
 }
 ```
 
-- `模板`必须为`TStudlyCaps`（驼峰式大写）以`T开头`
+- The `template` must start with `T` for `TStudlyCaps`
 ``` csharp
 public class Bootstrap<TType>
 {
 }
 ```
 
-- `接口`必须为`IStudlyCaps`（驼峰式大写）以`I开头`
+- `Interface` must start with `i` for `IStudlyCaps`
 ``` csharp
 public interface IBootstrap 
 { 
 }
 ```
 
-### 类名及函数
+### Class and function
 
-- `类名`必须为`StudlyCaps`（驼峰式大写）
+- `Class` must be `StudlyCaps`
 ``` csharp
 public class Bootstrap
 { 
 }
 ```
 
-- `函数名`必须为`StudlyCaps`（驼峰式大写）
+- `Function` must be `StudlyCaps`
 ``` csharp
 public void MyFunc()
 {
 }
 ```
 
-### 变量,常量及属性
+### Variables, constants and attributes
 
-- 类`公共变量名`必须为`StudlyCaps`（驼峰式大写）
+- Class `public variable name` must be `StudlyCaps`
 ``` csharp
 public string VariableName = "hello";
 ```
 
-- 类`受保护变量名`必须为`camelCase`（驼峰式小写）
+- The `protected variable name` must be `camelCase`
 ``` csharp
 internal string variableName = "hello";
 protected string variableName = "hello";
@@ -87,19 +87,19 @@ protected internal string variableName = "hello";
 private string variableName = "hello";
 ```
 
-- 类`属性名`必须为`StudlyCaps`（驼峰式大写）
+- Class `property name` must be `StudlyCaps`
 ``` csharp
 public string VariableName{ get; set; }
 ```
 
-- `静态变量`和`常量`必须为`StudlyCaps`（驼峰式大写）
+- `Static variables` and `constants` must be `StudlyCaps`
 ``` csharp
 public const string VariableName = "hello";
 public static readonly string VariableName = "hello";
 public static string VariableName = "hello";
 ```
 
-- `参数`必须为`camelCase`（驼峰式小写）
+- `Parameter` must be `camelCase`
 ``` csharp
 public void FunctionName(Action callFunction)
 {
@@ -107,16 +107,16 @@ public void FunctionName(Action callFunction)
 }
 ```
 
-### 枚举
+### Enumerate
 
-- `枚举名`必须为`StudlyCaps`（驼峰式大写）
+- `Enumeration` must be `StudlyCaps`
 ``` csharp
 public enum ApplicationEvents
 { 
 }
 ```
 
-- `枚举元素名`必须为`StudlyCaps`（驼峰式大写）
+- `Enumeration element name` must be `StudlyCaps`
 ``` csharp
 public enum ApplicationEvents
 {
@@ -125,23 +125,23 @@ public enum ApplicationEvents
 }
 ```
 
-### 命名空间
+### Namespaces
 
-- `代码`必须在`项目名`的根命名空间中
+- `Code` must be in the root namespace of the `project name`
 ``` csharp
 namespace CatLib
 {
 }
 ```
 
-- 组件`代码`必须在`项目名.组件名`的命名空间中
+- The component `code` must be in the namespace of the `project name.Component name`
 ``` csharp
 namespace CatLib.Routing
 {
 }
 ```
 
-### 文件
-- `文件名`必须和`类名`一致
-- `文件`必须只使用`UTF-8`而不使用BOM代码
-- 一个文件中不能出现`2个`及以上的类，除非它是内部类或者类的重载
+### File
+- `File name` must be consistent with `class name`
+- `File` must use `UTF-8` instead of BOM code
+- A file can not appear in `two or more` classes, unless it is an internal class or class overload

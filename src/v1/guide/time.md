@@ -1,26 +1,26 @@
 ---
-title: 时间
+title: Time
 type: guide
 order: 240
 ---
 
-## 时间
+## Time
 
 > This article is translated by machine
 
-CatLib时间组件允许建立自己独立的时间体系。
+The CatLib time component allows you to create your own independent time system.
 
-### 默认的时间
+### Default time
 
-默认的时间是基于Unity的时间的简单包装。
+The default time is based on the simple packaging of Unity time.
 
-### 时间API
+### Time API
 
-下述内容的描述是基于`默认时间`的，如果使用了`扩展时间`，其意义可能发生变化。
+The description of the following is based on the `default time`, and if the `extended time` is used, its meaning may change.
 
 #### **Time**
 
-从游戏开始到现在所用的时间(秒)
+From the beginning of the game to the present time (seconds)
 
 ``` csharp
 var time = timeManager.Default.Time;
@@ -28,7 +28,7 @@ var time = timeManager.Default.Time;
 
 #### **DeltaTime**
 
-上一帧到当前帧的时间(秒)
+Time from the previous frame to the current frame (seconds)
 
 ``` csharp
 var deltaTime = timeManager.Default.DeltaTime;
@@ -36,9 +36,9 @@ var deltaTime = timeManager.Default.DeltaTime;
 
 #### **FixedTime**
 
-游戏开始到现在的时间（秒）
+Game start to the present time (seconds)
 
-通过固定时间更新
+Updated by fixed time
 
 ``` csharp
 var fixedTime = timeManager.Default.FixedTime;
@@ -46,7 +46,7 @@ var fixedTime = timeManager.Default.FixedTime;
 
 #### **TimeSinceLevelLoad**
 
-从当前场景开始到目前为止的时间（秒）
+From the current scene to the current time (seconds)
 
 ``` csharp
 var timeSinceLevelLoad = timeManager.Default.TimeSinceLevelLoad;
@@ -54,7 +54,7 @@ var timeSinceLevelLoad = timeManager.Default.TimeSinceLevelLoad;
 
 #### **FixedDeltaTime**
 
-固定帧的更新时间
+Fixed frame update time
 
 ``` csharp
 var fixedDeltaTime = timeManager.Default.FixedDeltaTime;
@@ -66,7 +66,7 @@ timeManager.Default.FixedDeltaTime = 0.2f;
 
 #### **MaximumDeltaTime**
 
-能获取的最大帧与帧之间的更新时间
+Can be obtained between the maximum frame and the frame between the update time
 
 ``` csharp
 var maximumDeltaTime = timeManager.Default.MaximumDeltaTime;
@@ -74,7 +74,7 @@ var maximumDeltaTime = timeManager.Default.MaximumDeltaTime;
 
 #### **SmoothDeltaTime**
 
-平稳的更新时间，根据前N帧的加权平均值
+Smooth update time, according to the weighted average of the previous N frames
 
 ``` csharp
 var smoothDeltaTime = timeManager.Default.SmoothDeltaTime;
@@ -82,7 +82,7 @@ var smoothDeltaTime = timeManager.Default.SmoothDeltaTime;
 
 #### **TimeScale**
 
-时间缩放系数
+Time scaling factor
 
 ``` csharp
 var timeScale = timeManager.Default.TimeScale;
@@ -94,7 +94,7 @@ timeManager.Default.TimeScale = 0.5f;
 
 #### **FrameCount**
 
-从游戏开始到目前为止的总帧数
+The total number of frames from the beginning of the game to the present
 
 ``` csharp
 var frameCount = timeManager.Default.FrameCount;
@@ -102,7 +102,7 @@ var frameCount = timeManager.Default.FrameCount;
 
 #### **RealtimeSinceStartup**
 
-从游戏开始到目前为止的总时间（哪怕时间缩放系数为0也会增长）
+From the beginning of the game to the total time so far (even if the time scale factor is 0 will grow)
 
 ``` csharp
 var realtimeSinceStartup = timeManager.Default.RealtimeSinceStartup;
@@ -110,7 +110,7 @@ var realtimeSinceStartup = timeManager.Default.RealtimeSinceStartup;
 
 #### **CaptureFramerate**
 
-每秒的帧率
+Frame rate per second
 
 ``` csharp
 var captureFramerate = timeManager.Default.CaptureFramerate;
@@ -122,7 +122,7 @@ timeManager.Default.CaptureFramerate = 30;
 
 #### **UnscaledDeltaTime**
 
-不计算时间缩放系数的帧与帧之间的更新时间。
+The update time between the frame and the frame of the time scaling factor is not calculated.
 
 ``` csharp
 var unscaledDeltaTime = timeManager.Default.UnscaledDeltaTime;
@@ -130,15 +130,15 @@ var unscaledDeltaTime = timeManager.Default.UnscaledDeltaTime;
 
 #### **UnscaledTime**
 
-不考虑时间缩放系数，从游戏开始到目前为止的总时间
+Regardless of the time scaling factor, from the beginning of the game to the total time so far
 
 ``` csharp
 var unscaledTime = timeManager.Default.UnscaledTime;
 ```
 
-### 扩展时间
+### Expansion time
 
-您可以通过`Extend()`方法拓展出新的时间。
+You can extend the new time through the `Extend ()` method.
 
 ``` csharp
 timeManager.Extend(()=>
@@ -147,7 +147,7 @@ timeManager.Extend(()=>
 },"NewTime");
 ```
 
-通过`Get()`可以获得您拓展的时间。
+With `Get ()` you can get your time to expand.
 
 ``` csharp
 var timeSystem = timeManager.Get("NewTime");

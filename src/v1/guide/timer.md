@@ -1,65 +1,65 @@
 ---
-title: 计时器
+title: Timer
 type: guide
 order: 250
 ---
 
-## 计时器
+## Timer
 
 > This article is translated by machine
 
-使用计时器可以快速简单的实现`定时回调`,`重复执行`,`延迟执行`,`间隔执行`等一系列和计时相关的功能。
+Use the timer to quickly and easily implement a series of timing-related functions such as timing callback, repeat execution, deferred execution, and interval execution.
 
-### 获取计时器管理器
+### Get the timer manager
 
 ``` csharp
 var timerManager = App.Instance.Make<ITimerManager>();
 ```
 
-### 创建一个定时器
+### Create a timer
 
-您可以通过计时器管理器的`Make()`方法来创建计时器。
+You can create a timer by using the timer manager's `Make()` method.
 
-> `Make()`函数实质上在内部构建了一个匿名的定时器队列，而队列中只有一个定时器。
+> The `Make()` function essentially constructs an anonymous timer queue internally, with only one timer in the queue.
 
 ``` csharp
 var timer = timerManager.Make(()=>
 {
-    // 计时器需要执行的任务
+    // The timer needs to perform the task
 });
 ```
 
-### 延迟执行
+### Delayed execution
 
-#### **延迟指定秒数后执行**
+#### **Delay after the specified number of seconds to execute**
 
-您可以使用`Delay()`来延迟指定的秒数后执行定时器的任务。
+You can use `Delay()` to delay the specified number of seconds after executing the timer task.
 
 ``` csharp
 timer.Delay(3.25f);
 ```
 
-#### **延迟指定帧数执行**
+#### **Delay Specifies the number of frames to execute**
 
-您可以使用`DelayFrame()`来延迟指定的帧数后执行定时器的任务。
+You can use `DelayFrame()` to delay the specified number of frames after executing the timer task.
 
 ``` csharp
 timer.DelayFrame(3.25f);
 ```
 
-### 循环执行
+### Loop execution
 
-#### **在指定时间内循环执行**
+#### **Cyclic execution within the specified time**
 
-您可以使用`Loop()`在指定的时长内，每帧都执行定时器任务。
+You can use `Loop()` to execute a timer task on each frame within a specified length of time.
 
 ``` csharp
 timer.Loop(3.25f);
 ```
 
-#### **循环执行，直到函数返回false**
+#### **Loop until the function returns false**
 
-您可以使用`Loop()`来定义一个循环执行，每帧都执行，直到函数返回false。
+You can use `Loop()` to define a loop execution, each frame is executed until the function returns false.
 
 ``` csharp
 timer.Loop(()=>
@@ -68,57 +68,57 @@ timer.Loop(()=>
 });
 ```
 
-#### **循环执行指定帧数**
+#### **Cycle the specified number of frames**
 
-您可以使用`LoopFrame()`来定义一个循环执行，每帧都执行，直到到达指定帧数后停止。
+You can use `LoopFrame()` to define a loop execution, each frame is executed until it reaches the specified number of frames and stops.
 
 ``` csharp
 timer.LoopFrame(10);
 ```
 
-### 间隔执行
+### Interval execution
 
-如果您要取消间隔执行，那么请使用句柄来取消任务。
+If you want to cancel the interval execution, use the handle to cancel the task.
 
-#### **每隔指定秒数执行一次**
+#### **Executes once every specified number of seconds**
 
-每次间隔指定秒数后执行一次定时器任务。
+The timer task is executed once after each specified number of seconds.
 
 ``` csharp
 timer.Interval(3.25f);
 ```
 
-#### **每隔指定帧数执行一次**
+#### **Execute once every specified number of frames**
 
-每次间隔指定帧数后执行一次定时器任务。
+The timer task is executed once after the specified number of frames.
 
 ``` csharp
 timer.IntervalFrame(10);
 ```
 
-### 定时器队列
+### Timer queue
 
-定时器队列是将多个定时器串联起来依次执行。只有前一个定时器完成任务后后一个定时器才会被执行。
+The timer queue is executed by concatenating multiple timers in series. Only a timer will be executed after the previous timer completes the task.
 
-您可以传入一个`优先级`来决定定时器队列在全局中执行的顺序。
+You can pass a `priority` to determine the order in which the timer queue is executed globally.
 
 ``` csharp
 timerManager.MakeQueue(()=>
 {
     timerManager.Make(()=>
     {
-        //定时器1的任务
+        //Timer 1 task
     }).Delay(3);
     timerManager.Make(()=>
     {
-        //定时器2的任务
+        //Timer 2 task
     }).Loop(5);
 },100);
 ```
 
-### 取消执行
+### Cancel execution
 
-撤销定时器(队列)的执行。撤销后队列状态可不恢复。
+Undo the execution of the timer (queue). After the revocation of the queue state can not be restored.
 
 ``` csharp
 var handler = timerManager.MakeQueue(()=>
@@ -128,9 +128,9 @@ var handler = timerManager.MakeQueue(()=>
 timerManager.Cancel(handler);
 ```
 
-### 暂停执行
+### Pause execution
 
-暂时停止定时器(队列)的执行。
+Pause the execution of the timer (queue).
 
 ``` csharp
 var handler = timerManager.MakeQueue(()=>
@@ -140,9 +140,9 @@ var handler = timerManager.MakeQueue(()=>
 timerManager.Pause(handler);
 ```
 
-### 恢复执行
+### Resume execution
 
-恢复定时器(队列)的执行。
+Recovery timer (queue) execution.
 
 ``` csharp
 var handler = timerManager.MakeQueue(()=>
