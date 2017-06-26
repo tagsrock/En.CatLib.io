@@ -6,6 +6,8 @@ order: 210
 
 ## Routing
 
+> This article is translated by machine
+
 The CatLib routing system gives you the ability to schedule a function through a uri.
 
 ### Basic concept
@@ -24,37 +26,37 @@ The `attribute route` is an extension of the routing system that allows the deve
 
 `The routing compiler` is used to compile the routing entries. The compiled routing entries can be used by the router.
 
-#### **名词解释**
+#### **Glossary**
 
-`调度`一个方法，通过路由的方式调用被路由的方法。
+`Dispatch` a method that calls the route by way of routing.
 
-### 使用场景
+### Scenes to be used
 
-- (客户端,服务器)通过URI控制客户端切换UI，场景等。
-- 允许拦截UI，场景跳转过程，处理客户端埋点等逻辑。
-- 跨组件API调用，允许参数传递与解析，并通过控制反转来做组件解耦。
-- Debug调试指令控制
+- (client, server) through the URI control client switch UI, scenes and so on.
+- allow blocking the UI, the scene jump process, handle the client buried and other logic.
+- Cross-component API calls allow parameter passing and parsing, and component decoupling by controlling inversion.
+Debug instruction control
 
-### 初始配置
+### Initial configuration
 
-初始配置必须在框架初始化前完成配置，下面是路由组件需要的初始配置：
+The initial configuration must be configured before the framework is initialized. The following is the initial configuration required by the routing component:
 
-| 配置名                            | 是否必须 | 配置描述(可以点击查看详细)                 |
+| Configuration name                            | Must | Configuration description (click to view details)                 |
 | -------------------------------- |:------:|:--------------------------------------:|
-| `routing.stripping.reserved`     | 否      | [路由编译时参与编译的程序集](#路由编译剥离)  |
+| `routing.stripping.reserved`     | No      | [Compile-time compiler compiled assembly](#Routing compiler stripping)  |
 
-### 合法的URI
+### Legal URI
 
-符合下面RFC定义的URI均是合法的URI，都可以被CatLib路由系统解析：
+The URIs that conform to the following RFC definitions are legal URIs that can be parsed by the CatLib routing system:
 
 - [RFC1808](https://www.ietf.org/rfc/rfc1808.txt)
 - [RFC1738](https://www.ietf.org/rfc/rfc1738.txt)
 - [RFC2396](https://www.ietf.org/rfc/rfc2396.txt)
 - [RFC2732](https://www.ietf.org/rfc/rfc2732.txt)
 
-### 基础注册
+### Basic registration
 
-注册一个基本路由只需要一个`url`与一个`lambda`, 如果您没有定义uri的`scheme`那么将会使用默认值:
+Registering a basic route requires only a `url` with a` lambda`, and if you do not define uri's `scheme` then the default value will be used:
 
 ``` csharp
 Router.Instance.Reg("main", (request, response) =>
@@ -64,9 +66,9 @@ Router.Instance.Reg("main", (request, response) =>
 Router.Instance.Dispatch("catlib://main");
 ```
 
-### 特性路由注册
+### Attribute routing registration
 
-CatLib还允许您为类添加路由标记`[Routed]`来进行特性路由,注意被路由的类必须标记为`[Routed]`,且需要在路由方法上也标记`[Routed]`,同时保证方法访问级别为`public`：
+CatLib also allows you to add a route tag `Routed`'for the class. Note that the class to be routed must be marked as `[Routed]` and you need to mark `[Routed]` on the routing method, and ensure that the method Access level is `public`:
 
 ``` csharp
 [Routed]
@@ -84,9 +86,9 @@ public class AttrRouting
 Router.Instance.Dispatch("catlib://attr-routing/call");
 ```
 
-### 必选路由参数
+### Required routing parameters
 
-有时，我们需要在路由中捕获一些`url`的片段。例如，如果我们需要从url中捕获访问`道具详细界面`时的`道具id`,我们可以这样定义路由参数：
+Sometimes we need to catch some fragments of the `url`'in the route. For example, if we need to capture from the url to access the props detailed interface `props id`, we can define the routing parameters:
 
 ``` csharp
 Router.Instance.Reg("props-detail/{id}", (request, response) =>
@@ -95,7 +97,7 @@ Router.Instance.Reg("props-detail/{id}", (request, response) =>
 });
 ```
 
-您也可以根据需要定义多个参数：
+You can also define multiple parameters as needed:
 
 ``` csharp
 Router.Instance.Reg("bag/{type}/{sub_type}", (request, response) =>
@@ -104,13 +106,13 @@ Router.Instance.Reg("bag/{type}/{sub_type}", (request, response) =>
 });
 ```
 
-路由参数通常都会被放在`{}`内，并且参数名只能为：`a-z`、`A-Z`、`0-9`,以及`_`。
+The routing parameters are usually placed in `{}`, and the parameter name can only be: `a-z`,` A-Z`, `0-9`, and `_`.
 
-> 注意，路由参数不能包含`-`字符。请使用`_`替换。
+> Note that the routing parameter can not contain the `-` character. Please use `_` to replace.
 
-### 可选的路由参数
+### Optional routing parameters
 
-您也可以指定路由参数为可选参数，如果需要将参数指定为可选参数，可以在参数末尾加上`?`实现。
+You can also specify that the routing parameter is an optional parameter. If you need to specify an argument as an optional parameter, you can add the `?` to the end of the parameter.
 
 ``` csharp
 Router.Instance.Reg("character/{tag?}", (request, response) =>
@@ -118,19 +120,19 @@ Router.Instance.Reg("character/{tag?}", (request, response) =>
     response.SetContext("tag:" + request["tag"]);
 });
 ```
-如果`tag`没有匹配到合适参数，那么将会使用默认值。
+If `tag` does not match the appropriate parameter, the default value will be used.
 
-### 路由调度
+### Routing dispatcher
 
-如果要调用一个已经注册的路由，您可以使用`Dispatch()`方法。方法接受一个`uri`和`上下文`
+If you want to call a registered route, you can use the `Dispatch ()` method. Method to accept a `uri` and` context `
 
 ``` csharp
 IResponse response = Router.Instance.Dispatch("character/10" , "hello world");
 ```
 
-### 参数正则约束
+### Parameter regular constraint
 
-您可以使用`Where()`来约束您的路由参数的格式，`Where()`方法接受参数名和定义的参数约束的正则表达式。
+You can use `Where()` to constrain the format of your routing parameters. The `where()` method accepts regular expressions for parameter names and defined parameter constraints.
 
 ``` csharp
 Router.Instance.Reg("character/{tag?}", (request, response) =>
@@ -139,9 +141,9 @@ Router.Instance.Reg("character/{tag?}", (request, response) =>
 }).Where("tag", "[0-9]+");
 ```
 
-### 参数默认值
+### Parameter default value
 
-如果您定义了可选路由，那么当没有匹配到对应参数时，我们往往需要一个默认值。您可以通过`Defaults()`方法来为一个参数设定默认值。
+If you define an optional route, then when we do not match the corresponding parameters, we often need a default value. You can use the `Defaults()` method to set a default value for a parameter.
 
 ``` csharp
 Router.Instance.Reg("character/{tag?}", (request, response) =>
@@ -150,9 +152,9 @@ Router.Instance.Reg("character/{tag?}", (request, response) =>
 }).Default("tag", "1");
 ```
 
-### 路由组
+### Routing group
 
-路由组允许您共享路由的特性，可以被共享的特性有：`参数默认值`，`参数正则约束`,`处理中间件`,`路由异常中间件`。
+The routing group allows you to share the characteristics of the route. The features that can be shared are: parameter defaults, parameter regular constraints, processing middleware, and route exception middleware.
 
 ``` csharp
 Router.Instance.Group(()=>
@@ -169,9 +171,9 @@ Router.Instance.Group(()=>
 }).Where("type" , "[0-9]+");
 ```
 
-### 关联多个路由组
+### Associate multiple routing groups
 
-一个路由条目可以关系多个路由组，您可以通过给定路由组的名字来设定。
+A routing entry can be associated with multiple routing groups, which can be set by the name of a given routing group.
 
 ``` csharp
 IGroup group1 = Router.Instance.Group("group1");
@@ -186,32 +188,32 @@ Router.Instance.Reg("character/{type?}", (request, response) =>
 }).Group("group1").Group("group2");
 ```
 
-> 注意，一般情况下我们不建议对多个路由组进行关联，这会导致问题变得复杂化，如果需要使用请提前做好规划。
+> Note that in general we do not recommend associating multiple routing groups, which can cause the problem to become more complicated. If you need to use, please plan ahead.
 
-### 主编译过程
+### Master compilation process
 
-得到一条可以被使用的有效路由条目，CatLib在内部已经做了大量的工作。路由条目一般会进行2次编译，编译如下：
+Get a valid routing entry that can be used, CatLib has done a lot of work inside. Routing entries are usually compiled twice, compiled as follows:
 
-`特性路由编译` => `条目特征编译`
+`Attribute routing compilation` => `entry attribute compilation`
 
-特性路由编译在框架启动时就会进行，而条目特征编译则会等到用到路由条目时再进行编译。
+The attribute routing compilation takes place when the framework starts, and the entry feature compiles until it is compiled with the route entry.
 
-### 特性路由编译过程
+### Attribute routing compilation process
 
-CatLib路由编译器会在框架启动时扫描被特性路由标记的类，并将其解析成对应的路由条目（编译过程中，为不覆盖设定参数），执行流程如下：
+The CatLib Routing Compiler scans the classes marked by the feature when the framework starts and parses it into the corresponding routing entries (during the compilation process, the parameters are not overwritten). The execution flow is as follows:
 
-- `扫描所有被标记路由的类`
-    - `解析类中所有被标记路由的方法`
-        - `编译方法Where约束`
-        - `编译方法Defaults默认值`
-        - `编译方法Group组`
-    - `编译类Where约束`
-    - `编译类Defaults约束`
-    - `编译类Group组`
+- `Scan all sorted routes`
+    - `A method of resolving all marked routes in a class`
+        - `Compile method Where constraint`
+        - `Compile method Defaults default value`
+        - `Compilation method group`
+    - `Compile class Where constraint`
+    - `Compile class Defaults constraint`
+    - `Compile class Group`
 
-### 特性路由配置
+### Feature routing configuration
 
-如果您使用特性路由，如果想要在特性路由中表达路由的特性，那么可以这么做：
+If you use feature routing, you can do this if you want to express the characteristics of the route in the feature route:
 
 ``` csharp
 [Routed(Defaults="type=>1,tag=>2",Where="type=>[0-9]+,tag=>[0-9]+")]
@@ -231,15 +233,15 @@ public class AttrRouting
 }
 ```
 
-特性路由的配置是使用`=>`和`,`进行区分的。`参数1名=>参数1值,参数2名=>参数2值`。 
+The configuration of the feature route is distinguished using `=>` and `,`. `Parameter 1 => parameter 1 value, parameter 2 => parameter 2 value`.
 
-上述我们为`AttrRouting`这个类下的所有特性路由定义了2个默认值：`type` 和 `tag`，其值分别为`1`和`2`。同时也定义了参数正则约束。
+In this example, we define two default values for all the feature routes under `AttrRouting` 'class:` type` and `tag`, which are` 1` and `2`, respectively. Also defines the parameter regular constraints.
 
-在方法`Call`中我们定义了方法的特性路由默认值`type`。根据`特性路由编译过程`所以最终生效的默认值的将是`0`。
+In the method `Call` we define the method's routing default value` type`. According to `attribute routing compilation process` so the default value of the default will be `0`.
 
-### 特性路由Scheme
+### Feature routing scheme
 
-特性路由可以通过给定绝对地址的方式来定义Scheme
+Feature routing can define Scheme by giving an absolute address
 
 ``` csharp
 [Routed("ui://main")]
@@ -264,24 +266,24 @@ Router.Instance.Dispatch("ui://main/call");
 Router.Instance.Dispatch("ui2://func");
 ```
 
-上述代码以绝对地址的形式定义了特性路由，这样编译时将不会使用默认的`Scheme`。
+The above code defines the attribute route in the form of an absolute address so that the default `Scheme` will not be used at compile time.
 
-### 什么是路由中间件
+### What is routing middleware
 
-路由中间件允许拦截，修改路由请求及响应，中间件将会按照顺序依次执行。
+Routing middleware allows interception, modification of routing requests and responses, and middleware will be executed in order.
 
-路由中间件在宏观面上分为：`全局中间件` ， `类中间件` ，`路由条目中间件` , 中间件的执行流程为：
+Routing middleware on the macro side is divided into: `global middleware`, `middleware`, `routing entry middleware`, middleware implementation process is:
 
-(调度入口) `全局中间件` => `类中间件` => `路由条目中间件` => `目标路由方法`
-(调度出口) `全局中间件` <= `类中间件` <= `路由条目中间件` <= `目标路由方法`
+(Dispatching entry) `global middleware` => `class middleware` => `routing entry middleware` => `target routing method`
+(Dispatching exit) `global middleware` <= `class middleware` <= `routing entry middleware` <= `target routing method`
 
-> `全局中间件` ， `类中间件` 和 `路由条目中间件` 为不同的过滤器链池所以她们之间的`优先级`不产生影响。
+> Global middleware, middleware, and routing entries Middleware are different filter chain pools so their `priority 'does not have an impact.
 
-### 路由条目中间件
+### Routing entry middleware
 
-路由条目中间件属于`路由条目中间件`的过滤器链池。
+The routing entry middleware belongs to the filter chain pool of the routing entry middleware.
 
-路由条目中间件能够为当前路由条目设定中间件，它可以指定具体的路由执行指定的中间件。
+The routing entry middleware can set the middleware for the current routing entry, which can specify the specific route to execute the specified middleware.
 
 ``` csharp
 Router.Instance.Reg("character/{type?}", (request, response) =>
@@ -289,35 +291,35 @@ Router.Instance.Reg("character/{type?}", (request, response) =>
     response.SetContext("type:" + request["type"]);
 }).Middleware((request,response,next)=>
 {
-    // 中间件逻辑 ， 在路由执行之前
+    // Middleware logic before routing execution
     var result = next(request,response);
-    // 中间件逻辑 ， 在路由执行之后
+    // Middleware logic after the route is executed
     return result;
 });
 ```
 
-### 路由组中间件
+### Routing group middleware
 
-路由组中间件属于`路由条目中间件`的过滤器链池。
+The routing group middleware belongs to the filter chain pool of the routing entry middleware.
 
-路由组中间件将对所有组内的路由生效。
+The routing group middleware will take effect on routes within all groups.
 
 ``` csharp
 Router.Instance.Group(()=>
 {
-  // 注册路由条目  
+  // Register the routing entry  
 }).Middleware((request,response,next)=>
 {
-    // 中间件逻辑
+    // Middleware logic
     return next(request,response);
 });
 ```
 
-### 类中间件
+### Class Middleware
 
-类中间件属于`类中间件`的过滤器链池。
+Class middleware belongs to the `class middleware` 'filter chain pool.
 
-通过特性路由的方式和类注册方式，将允许您设定类的中间件接口：`IMiddleware`;
+By way of feature routing and class registration, you will be allowed to set the class middleware interface: `IMiddleware`
 
 ``` csharp
 [Routed]
@@ -327,7 +329,7 @@ public class AttrRouting : IMiddleware
     {
         get
         {
-            // 过滤器链
+            // Filter chain
         }
     }
     
@@ -339,51 +341,51 @@ public class AttrRouting : IMiddleware
 }
 ```
 
-如果您的路由标记类中设定了中间件接口，那么在调度到当前类下的路由方法时将会经过设定的中间件。
+If the middleware interface is set in your routing tag class, the middleware will be set when scheduling the routing method under the current class.
 
-### 全局中间件
+### Global middleware
 
-全局中间件属于`全局中间件`的过滤器链池。
+The global middleware belongs to the filter chain pool of `global middleware`.
 
-全局中间件会对所有调度的路由条目进行处理。
+The global middleware handles all scheduled routing entries.
 
 ``` csharp
 Router.Instance.Middleware((request,response,next)=>
 {
-    // 中间件逻辑
+    // Middleware logic
     return next(request,response);
 });
 ```
 
-### 无法找到路由条目
+### Can not find route entry
 
-CatLib路由系统允许您使用中间件的方式来处理`NotFoundRouteException`（无法找到可以被使用的路由条目）。
+The CatLib routing system allows you to use middleware to handle `NotFoundRouteException` (you can not find a route entry that can be used).
 
 ``` csharp
 Router.Instance.OnNotFound((request , next)=>
 {
-    // 逻辑处理
+    // Logical processing
     return next(request);
 },100);
 ```
 
-您可以传入一个`优先级`来决定哪个处理方案被优先执行，这在终止冒泡时非常有用。
+You can pass a `priority 'to determine which processing scheme is executed first, which is useful when terminating bubbling.
 
-### 异常处理
+### Exception handling
 
-在执行目标方法时，可能会引发某些异常，所以我们需要进行异常处理。
+In the implementation of the target method, may lead to some exceptions, so we need to deal with exception.
 
-CatLib的路由异常处理系统在触发异常时会冒泡处理各级异常处理链，异常处理被分为：`全局异常处理`和`局部异常处理`，同中间件一样，她们的过滤器链池是不同的。
+CatLib routing exception handling system in the event of an exception will be bubbling to deal with exception handling chain, exception handling is divided into: `global exception handling` and `local exception handling`, as with middleware, their filter chain pool is different.
 
-异常处理总是从`局部`开始的，CatLib的异常处理器会依次调用异常处理函数，逐层冒泡执行（如果冒泡被终止那么后续异常抛出也会被终止）。
+Exception handling always starts locally, and CatLib's exception handler calls the exception handler in turn, bubbling (if the bubble is terminated, then the exception is thrown).
 
-`触发异常` => `局部异常处理` => `全局异常处理` => `Dispatch()抛出异常`
+`Trigger exception` => `local exception handling` => `global exception handling` => `Dispatch() throws exception`
 
-> 请注意`递归路由调度`的时的异常处理。
+> Please note the exception handling of `recursive route scheduling`.
 
-#### **路由条目的异常处理**
+#### **Routine handling of routing entries**
 
-路由条目的异常处理属于`局部异常处理`。
+The exception handling of the routing entry belongs to `local exception handling`.
 
 ``` csharp
 Router.Instance.Reg("character/{type?}", (request, response) =>
@@ -391,53 +393,53 @@ Router.Instance.Reg("character/{type?}", (request, response) =>
     response.SetContext("type:" + request["type"]);
 }).OnError((request,response,ex,next) =>
 {
-    // 在其他异常处理类执行之前
+    // Before other exception handling classes are executed
     var result = next(request,response,ex);
-    // 在其他异常处理类执行之后
+    // After other exception handling classes are executed
     return result;
 });
 ```
 
-#### **路由组的异常处理**
+#### **Routing group exception handling**
 
-路由条目的异常处理属于`局部异常处理`。
+The exception handling of the routing entry belongs to `local exception handling`.
 
 ``` csharp
 Router.Instance.Group(()=>
 {
-  // 注册路由条目  
+  // Register the routing entry  
 }).OnError((request,response,ex,next) =>
 {
-    // 在其他异常处理类执行之前
+    // Before other exception handling classes are executed
     var result = next(request,response,ex);
-    // 在其他异常处理类执行之后
+    // After other exception handling classes are executed
     return result;
 });
 ```
 
-#### **全局异常处理**
+#### **Global exception handling**
 
-路由条目的异常处理属于`全局异常处理`。
+The exception handling of the routing entry belongs to the `global exception handling`.
 
 ``` csharp
 Router.Instance.OnError((request,response,ex,next) =>
 {
-    // 在其他异常处理类执行之前
+    // Before other exception handling classes are executed
     var result = next(request,response,ex);
-    // 在其他异常处理类执行之后
+    // After other exception handling classes are executed
     return result;
 });
 ```
 
-### 递归路由调度
+### Recursive routing scheduling
 
-CatLib路由系统已经对递归调用做了良好的支持，您可以安全的进行递归调用。
+CatLib routing system has been a good recursive call to support, you can safely recursive call.
 
-#### **递归路由调度时异常处理的流程**
+#### **The process of exception handling when recursive routing**
 
-假设我们进行了一次递归调用,异常将会按照如下流程触发：
+Assuming we have made a recursive call, the exception will be triggered by the following process:
 
-`触发异常` => `局部异常处理(嵌套的Dispatch("ui://call2"))` => `全局异常处理` => `局部异常处理(ui://call)` => `全局异常处理` => `Dispatch()抛出异常`
+`Trigger Exception` => `Local Exception Handling (Nested Dispatch ("ui://call2"))` => `Global Exception Handling` => `Local Exception Handling (ui://call)` => `Global Exception Handling` => `Dispatch () throws an exception`
 
 ``` csharp
 Router.Instance.Reg("ui://call" , (request,response)=>
@@ -451,19 +453,19 @@ Router.Instance.Reg("ui://call2" , (request,response)=>
 Router.Instance.Dispatch("ui://call");
 ```
 
-### 修改默认的Scheme
+### Modify the default Scheme
 
-CatLib路由系统的默认Scheme为`catlib`。但您可以通过`SetDefaultScheme()`来修改默认的Scheme。
+The default scheme for the CatLib routing system is `catlib`. But you can modify the default Scheme by `SetDefaultScheme ()`.
 
 ``` csharp
 Router.Instance.SetDefaultScheme("home");
 ```
 
-### 路由编译剥离
+### Route compilation stripping
 
-CatLib路由系统在在编译时会剥离掉不必要扫描的程序集。
+The CatLib routing system strips off unwanted scans when compiling.
 
-下面的程序集在编译时不会被剥离：
+The following assembly will not be stripped at compile time:
 
 - Assembly-CSharp
 - Assembly-CSharp-Editor-firstpass
@@ -471,11 +473,11 @@ CatLib路由系统在在编译时会剥离掉不必要扫描的程序集。
 - CatLib
 - CatLib.Tests
 
-您可以通过配置:`routing.stripping.reserved`来填写不要被剥离的程序集，使用`;`分隔程序集。
+You can do this by configuring: `routing.stripping.reserved` to fill in an assembly that is not to be stripped , Use `;` to separate assemblies.
 
-### 路由自动命名
+### Routing is automatically named
 
-使用特性路由时，如果您没有给定路由`uri`那么将会使用路由自动命名机制。
+When you use a feature route, if you do not have a given route `uri` then you will use the route automatic naming mechanism.
 
 ``` csharp
 [Routed]
@@ -494,15 +496,15 @@ public class AttrRouting
 }
 ```
 
-自动命名的规则是：根据类名或函数名转为全小写，单词之间用`-`进行分割的字符串,连续的大写视为一个单词。
+Automatic naming rules are: according to class name or function name to all lower case, between the words with `-`for the segmentation of the string, continuous capitalization as a word.
 
-上述路由将会被转化为：`catlib://attr-routing/call`和`catlib://attr-routing/call-npc`。
+The above route will be converted to: `catlib://attr-routing/call` and `catlib://attr-routing/call-npc`.
 
-### 自动路由注入
+### Automatic route injection
 
-使用特性路由时您可以使用自动参数注入来获取需要的参数。CatLib容器会自动解析并注入需求参数。
+When you use feature routing, you can use automatic parameter injection to get the required parameters. The CatLib container automatically parses and injects the demand parameters.
 
-其中`IRequest`和 `IResponse`类型为`当前路由`的请求和响应。
+Where the `IRequest` and` IResponse` types are requests and responses for the current route.
 
 ``` csharp
 [Routed]
@@ -522,12 +524,12 @@ public class AttrRouting
 }
 ```
 
-### 性能优化相关
+### Performance optimization
 
-CatLib 路由系统是一个复杂的系统，您不应该使用在高性能需求的地方或者频繁调用。
+The CatLib routing system is a complex system that you should not use in high performance requirements or frequently called.
 
-我们给出了下面几种优化方案：
+We have given the following optimization options:
 
-- 为不同的类型的路由目标定义不同的Scheme
-- 降低约束的复杂度
-- 使用手动注册的路由
+- Define different schemes for different types of routing destinations
+- Reduce the complexity of constraints
+- Use manually registered routes

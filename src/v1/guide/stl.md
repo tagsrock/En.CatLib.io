@@ -6,6 +6,8 @@ order: 220
 
 ## 标准库
 
+> This article is translated by machine
+
 CatLib标准模版库提供了常用的组件集合，她们是C#标准库的补充。她们被分为：容器，算法，迭代器等。
 
 > 标准库组件不能通过容器进行生成，您需要手动`new`出标准库组件。

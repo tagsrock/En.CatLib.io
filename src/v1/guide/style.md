@@ -6,6 +6,8 @@ order: 4
 
 ## 命名规范
 
+> This article is translated by machine
+
 本文档描述了CatLib框架中的命名规范。
 
 > 如果您要为为 CatLib 发起贡献，您必须遵循这份命名规范文档。

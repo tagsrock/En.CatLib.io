@@ -1,9 +1,11 @@
 ---
-title: 使用案例
+title: Use case
 type: guide
 order: 6
 ---
 
-## 使用案例
+## Use case
 
-> 这份文档等待您进行完善
+> This article is translated by machine
+
+> This document awaits you

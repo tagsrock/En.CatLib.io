@@ -6,6 +6,8 @@ order: 100
 
 ## 服务提供者
 
+> This article is translated by machine
+
 服务提供者是`组件`和`CatLib`联系的桥梁。同时也是CatLib启动的中心，你自己的程序以及所有CatLib的核心服务都是通过服务提供者启动。
 
 > 服务提供者是CatLib核心提供的功能，如果您需要将CatLib的组件移植到其他框架使用，那么您需要移除服务提供者。

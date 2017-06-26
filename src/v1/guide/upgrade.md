@@ -1,9 +1,11 @@
 ---
-title: 升级指南
+title: Upgrade Guide
 type: guide
 order: 1
 ---
 
-## 升级指南
+## Upgrade Guide
 
-> 这是 CatLib 预发行Beta版。无需升级。
+> This article is translated by machine
+
+> This is the CatLib pre-release Beta. No need to upgrade.

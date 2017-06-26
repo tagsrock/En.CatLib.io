@@ -6,6 +6,8 @@ order: 240
 
 ## 时间
 
+> This article is translated by machine
+
 CatLib时间组件允许建立自己独立的时间体系。
 
 ### 默认的时间
