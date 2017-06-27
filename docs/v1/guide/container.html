@@ -197,8 +197,8 @@
     <h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><blockquote>
 <p>This article is translated by machine</p>
 </blockquote>
-<p>A service container is a powerful tool for managing class dependencies and performing dependency injection. Its essence is to inject the <code>constructor &#39;or the attribute selector labeled</code> [Inject] `property by reflection (injecting the service implementation dependency into the class).</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Almost all service bundles are done in the service provider. If a <code>` or</code>class` does not have any interface or alias, then it is not necessary to bind it to the container.</p>
+<p>A service container is a powerful tool for managing class dependencies and performing dependency injection. Its essence is to inject the <code>constructor</code> or the attribute selector labeled <code>[Inject]</code> property by reflection (injecting the service implementation dependency into the class).</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Almost all service bundles are done in the service provider. If a or class does not have any interface or alias, then it is not necessary to bind it to the container.</p>
 <p>The container does not need to be told how to build the object because it uses the reflection service to automatically resolve the specific object. In a service provider, you can access the container with the <code>App</code> variable, and then use the<code>Bind ()</code>method to register a service or class binding.</p>
 <blockquote>
 <p>The code used in the following documents is local code. You need to adjust the use of the scene as appropriate.</p>
