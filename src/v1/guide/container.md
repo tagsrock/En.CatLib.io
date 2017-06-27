@@ -8,11 +8,11 @@ order: 101
 
 > This article is translated by machine
 
-A service container is a powerful tool for managing class dependencies and performing dependency injection. Its essence is to inject the `constructor 'or the attribute selector labeled` [Inject] `property by reflection (injecting the service implementation dependency into the class).
+A service container is a powerful tool for managing class dependencies and performing dependency injection. Its essence is to inject the `constructor` or the attribute selector labeled `[Inject]` property by reflection (injecting the service implementation dependency into the class).
 
 ### Introduction
 
-Almost all service bundles are done in the service provider. If a `` or `class` does not have any interface or alias, then it is not necessary to bind it to the container.
+Almost all service bundles are done in the service provider. If a or class does not have any interface or alias, then it is not necessary to bind it to the container.
 
 The container does not need to be told how to build the object because it uses the reflection service to automatically resolve the specific object. In a service provider, you can access the container with the `App` variable, and then use the` Bind () `method to register a service or class binding.
 
