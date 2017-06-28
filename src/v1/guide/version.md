@@ -10,7 +10,18 @@ order: 2
 
 > CatLib version of the standard is used: [Semver semantic version of the standard](http://semver.org/lang/zh-CN/)
 
-### V0.8 Beta
+### V0.8.2 Beta
+
+- Fixed the bug that was caused by configuration errors due to the `FileSystemManager` facade model
+
+### V0.8.1 Beta
+
+- Fixed the problem of inconsistent version names
+- Fixed the missing registered file service provider
+- Fixed a bug, this bug will lead to the correct path in `/` and `\` mixed positioning
+- Fixed a bug, this bug results in a default path that cannot be returned without a given `AssetPath`
+
+### V0.8.0 Beta
 
 > This release is pre-release for BetaLib.
 
