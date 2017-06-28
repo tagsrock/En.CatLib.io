@@ -6,7 +6,7 @@ order: 100
 
 ## Sort Set
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/detail/stl/sortset.md)
 
 Ordinal collections and collections are also collections of elements, and do not allow duplicate members. The difference is that each element will be associated with a score that can be sorted.
 

@@ -6,7 +6,7 @@ order: 101
 
 ## Container
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/container.md)
 
 A service container is a powerful tool for managing class dependencies and performing dependency injection. Its essence is to inject the `constructor` or the attribute selector labeled `[Inject]` property by reflection (injecting the service implementation dependency into the class).
 

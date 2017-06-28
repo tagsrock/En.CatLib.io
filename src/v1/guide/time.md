@@ -6,7 +6,7 @@ order: 240
 
 ## Time
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/time.md)
 
 The CatLib time component allows you to create your own independent time system.
 

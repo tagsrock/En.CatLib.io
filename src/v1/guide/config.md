@@ -6,7 +6,7 @@ order: 200
 
 ## Configuration
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/config.md)
 
 CatLib allows you to configure the system to configure the functional parameters required by the service provider. Each service provider will provide their own unique configuration information. You can learn about the configuration information from these providers' documents.
 

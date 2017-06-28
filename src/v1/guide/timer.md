@@ -6,7 +6,7 @@ order: 250
 
 ## Timer
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/timer.md)
 
 Use the timer to quickly and easily implement a series of timing-related functions such as timing callback, repeat execution, deferred execution, and interval execution.
 

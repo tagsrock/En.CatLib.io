@@ -6,7 +6,7 @@ order: 101
 
 ## Quick list
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/detail/stl/quicklist.md)
 
 Quick list sorted by insert order. You can add an element to the list of head (left) or tail (right).
 

@@ -6,7 +6,7 @@ order: 103
 
 ## API
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/api.md)
 
 A service interface is a set of interfaces provided by the framework that define the core component services (hereinafter referred to as the service). Such as: `IRouter` interface defines the routing service can be used method.
 

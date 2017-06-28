@@ -6,7 +6,7 @@ order: 210
 
 ## Routing
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/routing.md)
 
 The CatLib routing system gives you the ability to schedule a function through a uri.
 

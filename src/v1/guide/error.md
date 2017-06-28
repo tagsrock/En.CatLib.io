@@ -6,7 +6,7 @@ order: 3
 
 ## Common mistakes
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/error.md)
 
 This document describes the bugs that developers often encounter to help developers solve problems quickly.
 

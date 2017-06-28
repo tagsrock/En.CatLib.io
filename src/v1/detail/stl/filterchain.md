@@ -6,7 +6,7 @@ order: 103
 
 ## Filter Chain
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/detail/stl/filterchain.md)
 
 The filter chain is the role of passing the data to a task sequence, the filter chain actor's pipeline, the data being processed here and then passed to the next step.
 

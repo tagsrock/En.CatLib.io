@@ -6,7 +6,7 @@ order: 102
 
 ## LRU Cache
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/detail/stl/lrucache.md)
 
 Recently, the use of the cache at least based on the historical record of data to record data. When the chain is full, the data will be discarded at the end of the list.
 

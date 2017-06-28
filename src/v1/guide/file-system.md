@@ -6,7 +6,7 @@ order: 230
 
 ## File system
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/file-system.md)
 
 CatLib provides file system abstraction that allows an API to operate on multiple local (cloud storage) file storage systems.
 

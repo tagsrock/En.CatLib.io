@@ -6,7 +6,7 @@ order: 104
 
 ## Service facade
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/facade.md)
 
 The facade provides a `static 'access interface for services that are bound within the service container. Compared to the direct use of container-generated services to use, the facade can provide more flexibility in testing, flexible, concise features.
 

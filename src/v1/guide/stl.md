@@ -6,7 +6,7 @@ order: 220
 
 ## Standard library
 
-> This article is translated by machine
+> This article is translated by machine , I would like to participate in [manual translation](https://github.com/catlib/en.catlib.io/blob/master/src/v1/guide/stl.md)
 
 CatLib standard template library provides a common set of components, they are added to the C # standard library. They are divided into: containers, algorithms, iterators, etc.
 
