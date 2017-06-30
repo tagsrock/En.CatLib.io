@@ -49,7 +49,7 @@ You can propose new features on the issue board or optimize existing functions. 
 
 ### Documents contributor
 
-> A:[alecnunn](https://github.com/alecnunn)
+- A:[alecnunn](https://github.com/alecnunn)
 
 ### Other contributors
 
