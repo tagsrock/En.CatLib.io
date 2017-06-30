@@ -47,6 +47,10 @@ You can propose new features on the issue board or optimize existing functions. 
 
 > Virtual to be
 
+### Documents contributor
+
+> A:[alecnunn](https://github.com/alecnunn)
+
 ### Other contributors
 
 - A:[AlianBlank](https://github.com/AlianBlank)
