@@ -10,7 +10,7 @@ order: 4
 
 This document describes the naming conventions in the CatLib framework.
 
-> If you want to contribute to CatLib, you must follow this naming convention document.
+> If you want to contribute to CatLib, you must follow the conventions laid out in this document.
 
 　
 > If the access level (public | private, etc.) is not explicitly specified, it means that all access levels are valid.
@@ -89,7 +89,7 @@ private string variableName = "hello";
 
 - Class `property name` must be `StudlyCaps`
 ``` csharp
-public string VariableName{ get; set; }
+public string VariableName { get; set; }
 ```
 
 - `Static variables` and `constants` must be `StudlyCaps`
@@ -144,4 +144,4 @@ namespace CatLib.Routing
 ### File
 - `File name` must be consistent with `class name`
 - `File` must use `UTF-8` instead of BOM code
-- A file can not appear in `two or more` classes, unless it is an internal class or class overload
+- A file can not contain `two or more` classes, unless it is an internal class or class overload
