@@ -199,7 +199,7 @@
 </blockquote>
 <p>This document describes the naming conventions in the CatLib framework.</p>
 <blockquote>
-<p>If you want to contribute to CatLib, you must follow this naming convention document.</p>
+<p>If you want to contribute to CatLib, you must follow the conventions laid out in this document.</p>
 </blockquote>
 <p>　</p>
 <blockquote>
@@ -240,7 +240,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">internal</span> <span class="keyword">string</span> variableName = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">protected</span> <span class="keyword">string</span> variableName = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">protected</span> <span class="keyword">internal</span> <span class="keyword">string</span> variableName = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">private</span> <span class="keyword">string</span> variableName = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
 </li>
 <li><p>Class <code>property name</code> must be <code>StudlyCaps</code></p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">string</span> VariableName&#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">string</span> VariableName &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p><code>Static variables</code> and <code>constants</code> must be <code>StudlyCaps</code></p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">string</span> VariableName = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">string</span> VariableName = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> VariableName = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
@@ -268,7 +268,7 @@
 <h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
 <li><code>File name</code> must be consistent with <code>class name</code></li>
 <li><code>File</code> must use <code>UTF-8</code> instead of BOM code</li>
-<li>A file can not appear in <code>two or more</code> classes, unless it is an internal class or class overload</li>
+<li>A file can not contain <code>two or more</code> classes, unless it is an internal class or class overload</li>
 </ul>
 
     <div class="footer">
