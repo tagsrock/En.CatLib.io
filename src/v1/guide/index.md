@@ -15,35 +15,36 @@ order: 0
 
 ### What is CatLib?
 
-CatLib is a set of `progressive` service provider frameworks. The framework provides multiple implementations for the client and decouples them from multiple implementations. Service provider changes are transparent to their clients, which provides better scalability. She is not only easy to get started, but also easy to integrate with third-party libraries or existing projects.
+CatLib is a set of `progressive` service provider frameworks. The framework provides multiple implementations for the client and decouples them from multiple implementations. Service provider changes are transparent to their clients, which provides better scalability. CatLib is not only simple to get started with, but also easy to integrate with third-party libraries or existing projects.
 
 ### Advantages of CatLib
 
-- CatLib is a progressive framework that integrates seamlessly with existing frameworks. You can easily access CatLib regardless of your project at which stage.
+- CatLib is a progressive framework that integrates seamlessly with existing frameworks. You can easily integreate CatLib regardless of the stage of your project.
 - CatLib provides a dependency injection scheme that can greatly assist in decoupling the project.
 - CatLib provides a large number of reliable, sustainable public components to help companies reduce development costs.
-- Based on the MIT protocol, enterprises can build a private public component library through CatLib's componentization scheme to accumulate public components.
-- lightweight framework, all components can be removed, you can only choose the right for your components.
-- Chinese documents perfect, very low learning costs.
-- interface-oriented programming, the underlying components without perception replacement.
+- Released under the MIT license, developers can utilize CatLib in their open source projects, as well as commercial ones.
+- CatLib is a lightweight framework; all components can be removed, so you can choose what is right for your project.
+- Interface-oriented programming allows you to implement underlaying components without breaking other parts.
 
-### From Github on Clone
+### Clone CatLib
 
-> CatLib:[https://github.com/catlib/catlib](https://github.com/catlib/catlib)
+> CatLib: [https://github.com/catlib/catlib](https://github.com/catlib/catlib)
 
-First, go to Clon from the Github to the CatLib project!
+First, clone the CatLib project from Github!
 
-After completing Clone, you will find that there are folders in the Clone folder: CatLib.Unity and CatLib.VS 2 folders, which correspond to the `CatLib Unity project` and `CatLib compilation project 'respectively.
+`git clone https://github.com/catlib/catlib.git`
 
-Your project development will start with `CatLib.Unity`, and` CatLib.VS` will be used to compile the CatLib framework into a `dll` file. In general, CatLib source code will be in the `CatLib.VS` file.
+After cloning the repository, you will find that there are folders in the `catlib` folder: `CatLib.Unity` and `CatLib.VS`, which correspond to the `CatLib Unity project` and `CatLib compilation project` respectively.
 
-Using Unity to open the `CatLib.Unity` project, first run a unit test first to make sure you download the frame project without problems. Open the unit test window with Window-> Test Runner, then execute `Run All`.
+Your project development will start with `CatLib.Unity`, and` CatLib.VS` will be used to compile the CatLib framework into a `dll` file. In general, CatLib source code will be in the `CatLib.VS` directory.
 
-Please wait a moment, depending on the performance of the device, the unit test may be about 1 minute.
+When using Unity to open the `CatLib.Unity` project, first run a unit test first to make sure you downloaded the framework project correctly. Open the unit test window with `Window -> Test Runner`, then execute `Run All`.
 
-### First use
+Wait a moment for the tests to complete (the time will depend on the performance of your computer, but the unit tests generally take about 1 minute).
 
-CatLib is easy to use. You only need to have a good C # foundation. You can be very quick to read through the development of this guide.
+### First Time Use
+
+CatLib is easy to use. If you have a good foundational understanding of C#, you can quickly read through the documentation of this guide (_in progress_).
 
 ### Links
 
