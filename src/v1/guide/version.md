@@ -11,6 +11,11 @@ order: 2
 　
 > CatLib version of the standard is used: [Semver semantic version of the standard](http://semver.org/lang/zh-CN/)
 
+### V0.8.3 Beta
+
+- Fixed a problem with `UnitySettingLocator` could not be properly stored and accessed
+- Fixed a problem with `Application.Version` inconsistencies
+
 ### V0.8.2 Beta
 
 - Fixed the bug that was caused by configuration errors due to the `FileSystemManager` facade model
